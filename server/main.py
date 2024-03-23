@@ -18,6 +18,10 @@ cors = CORS(app, origins='*')
 #         }
 #     )
 
+@app.route("/", defaults={'path':''})
+def test(path):
+    return "Hello World"
+
 @app.route("/api/classes", methods=['GET'])
 def classes():
     r = requests.get('https://api.open5e.com/v1/classes/?format=json')
@@ -26,4 +30,4 @@ def classes():
     return classes
 
 if __name__ == "__main__":
-    app.run(debug=True, port=8080)
+    app.run(debug=True, host='localhost', port=8080)

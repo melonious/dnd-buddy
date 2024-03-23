@@ -1,4 +1,5 @@
 import { Icon } from '@iconify/react';
+import { Link } from 'react-router-dom';
 
 function Header(){
     return(
@@ -6,9 +7,9 @@ function Header(){
             <Icon icon="game-icons:dice-twenty-faces-twenty" height="45px" width="80px" style={{marginLeft: '20px', color: "white"}}/>
             <nav>
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/about">About</Link></li>
+                    <li><Link to="/contact">Contact</Link></li>
                 </ul>
             </nav>
         </header>
