@@ -6,6 +6,10 @@ body {
   padding: 10px;
 }
 
+.body {
+  padding-bottom: 45px;
+}
+
 header{
   background-color: hsl(122, 15%, 49%);
   height: 50px;
@@ -31,6 +35,17 @@ header li a {
   text-decoration: none;
 }
 
+.navBtn {
+  background-color: hsl(122, 15%, 49%);
+  color: white;
+  height: 40px;
+  width: 90px;
+  padding: 2px;
+  margin: 15px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
 footer {
   background-color: hsl(122, 15%, 49%);
   color: white;
@@ -39,6 +54,7 @@ footer {
   left: 0;
   bottom: 0;
   width: 100%;
+  height: 45px;
 }
 
 .card-container {

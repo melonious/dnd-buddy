@@ -40,6 +40,7 @@ function Classes(){
                 simpleDescriptions.map((description, index) => (
                     <Card key={index} description={description}/>
             ))}
+            <p>If any of those classes spoke to you, you're off to a great start! If not, no worries. We gotchu.</p>
         </div>
     );
 }
