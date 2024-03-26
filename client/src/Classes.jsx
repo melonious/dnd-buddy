@@ -12,7 +12,7 @@ function Classes(){
         {"Cleric": "in the name of god, I buff thee", "icons": ["simple-line-icons:magic-wand"]},
         {"Druid": "animal lover", "icons": ["simple-line-icons:magic-wand"]},
         {"Fighter": "exactly what it sounds like", "icons": ["ri:sword-fill"]},
-        {"Monk": "smack a bitch up", "icons": ["ph:hands-clapping"]},
+        {"Monk": "catch these hands", "icons": ["ph:hands-clapping"]},
         {"Paladin": "holier than thou crusader", "icons": ["ri:sword-fill"]},
         {"Ranger": "sexy arrow shooty person", "icons": ["mdi:bow-arrow"]},
         {"Rogue": "I fear you are underestimating the sneakiness, sir.", "icons": ["game-icons:cloak-dagger"]},

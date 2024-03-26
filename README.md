@@ -7,3 +7,4 @@
 
 ### Run backend server:
 ```python3 main.py```
+```redis-server```
