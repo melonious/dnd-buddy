@@ -8,7 +8,7 @@ import requests
 
 app = Flask(__name__)
 app.config.from_object(ApplicationConfig)
-cors = CORS(app, origins='*')
+cors = CORS(app, supports_credentials=True)
 
 bcrypt = Bcrypt(app)
 server_session = Session(app)
@@ -62,7 +62,9 @@ def signup():
     new_user = User(email=email, password=hashed_password)
     db.session.add(new_user)
     db.session.commit()
-
+    print(session)
+    session["user_id"] = new_user.id
+    print(session)
     return jsonify({
         "id": new_user.id,
         "email": new_user.email
@@ -87,6 +89,11 @@ def login():
         "id": user.id,
         "email": user.email
     })
+
+@app.route("/logout", methods=["POST"])
+def logout():
+    session.pop("user_id")
+    return "200"
 
 @app.route("/api/classes", methods=['GET'])
 def classes():
