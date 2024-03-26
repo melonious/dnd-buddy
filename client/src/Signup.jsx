@@ -2,12 +2,14 @@ import { useState } from 'react';
 import httpClient from "./httpClient";
 
 function Signup(){
+    const [givenName, setGivenName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
     const signup = async () => {
         try {
             const resp = await httpClient.post("//localhost:8080/signup", {
+            givenName,
             email,
             password,
         });
@@ -39,12 +41,20 @@ function Signup(){
                     ></input>
                 </div>
             </form>
-            {/* <form method="POST">
+            <form method="POST">
                 <div className="form-group">
-                    <label htmlFor="firstName">First Name</label><br/>
-                    <input type="text" className="form-control" id="firstName" name="firstName" placeholder="Enter First Name"></input>
+                    <label htmlFor="givenName">Given Name</label><br/>
+                    <input 
+                        type="text" 
+                        className="form-control" 
+                        id="givenName" 
+                        name="givenName" 
+                        placeholder="Enter Given Name"
+                        value={givenName}
+                        onChange={(e) => setGivenName(e.target.value)}
+                    ></input>
                 </div>
-            </form> */}
+            </form>
             <form method="POST">
                 <div className="form-group">
                     <label htmlFor="password">Password</label><br/>

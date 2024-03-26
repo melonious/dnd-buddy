@@ -2,9 +2,11 @@ from flask import Flask, jsonify, request, session
 from flask_cors import CORS
 from flask_bcrypt import Bcrypt
 from flask_session import Session
+from datetime import datetime
 from config import ApplicationConfig
 from models import db, User
 import requests
+
 
 app = Flask(__name__)
 app.config.from_object(ApplicationConfig)
@@ -50,8 +52,11 @@ def get_current_user():
 
 @app.route("/signup", methods=["POST"])
 def signup():
+    given_name = request.json["givenName"]
     email = request.json["email"]
     password = request.json["password"]
+    created_at = datetime.now()
+    updated_at = datetime.now()
 
     user_exists = User.query.filter_by(email=email).first() is not None
 
@@ -59,12 +64,12 @@ def signup():
         return jsonify({"error": "User already exists"}), 409
 
     hashed_password = bcrypt.generate_password_hash(password)
-    new_user = User(email=email, password=hashed_password)
+    new_user = User(given_name=given_name, email=email, password=hashed_password, created_at=created_at, updated_at=updated_at)
     db.session.add(new_user)
     db.session.commit()
-    print(session)
+    
     session["user_id"] = new_user.id
-    print(session)
+    
     return jsonify({
         "id": new_user.id,
         "email": new_user.email

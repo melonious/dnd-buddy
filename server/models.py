@@ -1,6 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
 from uuid import uuid4
-from datetime import datetime
 
 db = SQLAlchemy()
 
@@ -11,5 +10,7 @@ class User(db.Model):
     __tablename__ = "users"
     id = db.Column(db.String(32), primary_key=True, unique=True, default=get_uuid)
     email = db.Column(db.String(345), unique=True)
-    # first_name = db.Column(db.String(32))
+    given_name = db.Column(db.String(32), nullable=False)
     password = db.Column(db.Text, nullable=False)
+    created_at = db.Column(db.DateTime, nullable=False)
+    updated_at = db.Column(db.DateTime, nullable=False)
