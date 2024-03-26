@@ -3,4 +3,4 @@ __pycache__/
 venv/
 .DS_Store
 dump.rdb
-server/config.py
+./server/config.py
