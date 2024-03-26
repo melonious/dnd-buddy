@@ -13,7 +13,6 @@ function Signup(){
             email,
             password,
         });
-            console.log(resp)
             window.location.href = "/";
         }
         catch (e) {
